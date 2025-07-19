@@ -19,4 +19,6 @@ Or verify these credentials via the Upload_bento notebook example. Don't forget 
 
 5: The model should return an audio file with the requested text generated as audio. 
 
+This repo also includes a frontend for interacting with the model in the "frontend" folder - simply follow the instructions from that folder to get a frontend deployed in your HPE PCAI AI Essentials environment which can be assessed from the UI to interact with the model.
+
 If you are interested in how this model was packaged as a bento, please check the bento_build_files directory.
