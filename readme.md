@@ -21,4 +21,6 @@ Or verify these credentials via the Upload_bento notebook example. Don't forget 
 
 This repo also includes a frontend for interacting with the model in the "frontend" folder - simply follow the instructions from that folder to get a frontend deployed in your HPE PCAI AI Essentials environment which can be assessed from the UI to interact with the model.
 
+<img width="3014" height="1476" alt="image" src="https://github.com/user-attachments/assets/37276158-5253-486a-8c2e-c5dc9791b008" />
+
 If you are interested in how this model was packaged as a bento, please check the bento_build_files directory.
