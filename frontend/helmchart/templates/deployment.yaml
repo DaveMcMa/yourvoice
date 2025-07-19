@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Release.Name }}
+    {{- include "hpe-ezua.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        {{- include "hpe-ezua.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: your-voice
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 7860
+        env:
+        # TTS API configurations
+        - name: TTS_API_URL
+          value: {{ .Values.tts.api.url | quote }}
+        - name: TTS_API_TOKEN
+          value: {{ .Values.tts.api.token | quote }}
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}

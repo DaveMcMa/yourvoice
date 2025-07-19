@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: davemcmahon/chatterbox-ui
+  tag: latest
+  pullPolicy: Always
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1Gi"
+    cpu: "1000m"
+
+ezua:
+  virtualService:
+    endpoint: "your-voice.${DOMAIN_NAME}"
+    istioGateway: "istio-system/ezaf-gateway"
+
+tts:
+  api:
+    url: "<YOUR-CHATTERBOX-MLIS-ENDPOINT-HERE>/"
+    token: "<YOUR-CHATTERBOX-MLIS-TOKEN-HERE>"
