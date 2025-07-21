@@ -67,7 +67,7 @@ chatterbox_runner = bentoml.Runner(ChatterboxRunnable, name="chatterbox_runner")
 # Define the service and register the runner
 svc = bentoml.Service(name="chatterbox", runners=[chatterbox_runner])
 
-# Basic API endpoint (matches your Kokoro pattern exactly)
+# Basic API endpoint
 @svc.api(input=JSON(), output=File(mime_type="audio/wav"))
 async def synthesize(input_data: dict) -> t.IO[t.Any]:
     text = input_data.get("text", "Hello, this is Chatterbox TTS.")
